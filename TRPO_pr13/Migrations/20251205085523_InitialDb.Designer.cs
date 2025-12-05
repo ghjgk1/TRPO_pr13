@@ -12,8 +12,8 @@ using TRPO_pr13.Data;
 namespace TRPO_pr13.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251201215525_AddTableRole")]
-    partial class AddTableRole
+    [Migration("20251205085523_InitialDb")]
+    partial class InitialDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

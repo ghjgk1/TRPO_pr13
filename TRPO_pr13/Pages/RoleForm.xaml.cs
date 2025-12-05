@@ -22,29 +22,31 @@ namespace TRPO_pr13.Pages
     /// </summary>
     public partial class RoleForm : Page
     {
-        Role _role = new();
-        RoleService service = new();
-        bool IsEdit = false;
+        Role _role { get; set; } = new();
+        RoleService _service { get; set; } = new();
+
+        bool isEdit = false;
 
         public RoleForm(Role? role = null)
         {
             InitializeComponent();
-            if (_role != null)
+            if (role != null)
             {
-                service.LoadRelation(role, "Users");
+                _service.LoadRelation(role, "Users");
                 _role = role;
-                IsEdit = true;
+                isEdit = true;
             }
             DataContext = _role;
         }
 
         private void save(object sender, RoutedEventArgs e)
         {
-            if (IsEdit)
-                service.Commit();
+            if (isEdit)
+                _service.Commit();
             else
-                service.Add(_role);
-            back(sender, e);
+                _service.Add(_role);
+
+            NavigationService.GoBack();
         }
         private void back(object sender, RoutedEventArgs e)
         {

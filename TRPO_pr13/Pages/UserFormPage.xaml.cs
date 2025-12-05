@@ -34,7 +34,7 @@ namespace TRPO_pr13.Pages
             login.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
             name.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
             password.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
-            email.GetBindingExpression(TextBox.TextProperty)?.UpdateSource(); 
+            email.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
             date.GetBindingExpression(TextBox.TextProperty)?.UpdateSource();
         }
 
@@ -53,9 +53,9 @@ namespace TRPO_pr13.Pages
                 _service.Commit();
             else
                 if (!ValidateForm())
-                    return;
-                else 
-                    _service.Add(_user);
+                return;
+            else
+                _service.Add(_user);
 
             NavigationService.GoBack();
         }
@@ -63,6 +63,15 @@ namespace TRPO_pr13.Pages
         private void back(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void profile(object sender, RoutedEventArgs e)
+        {
+            if (!isEdit)
+                if (!ValidateForm())
+                    return;
+
+            NavigationService.Navigate(new ProfilePage(_user));
         }
     }
 }

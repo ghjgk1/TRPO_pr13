@@ -22,12 +22,13 @@ namespace TRPO_pr13.Pages
     /// </summary>
     public partial class RolePage : Page
     {
+        public RoleService service { get; set; } = new();
+        public Role? current { get; set; } = new();
+
         public RolePage()
         {
             InitializeComponent();
         }
-        public RoleService service { get; set; } = new();
-        public Role? current { get; set; } = null;
         private void back(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
@@ -44,22 +45,22 @@ namespace TRPO_pr13.Pages
             }
             else
             {
-                MessageBox.Show("Выберите группу");
+                MessageBox.Show("Выберите роль");
             }
         }
         private void remove(object sender, RoutedEventArgs e)
         {
             if (current != null)
             {
-                if (MessageBox.Show("Вы действительно хотите удалить группу?",
-                "Удалить группу?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Вы действительно хотите удалить роль?",
+                "Удалить роль?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     service.Remove(current);
                 }
             }
             else
             {
-                MessageBox.Show("Выберите группу для удаления", "Выберите группу",
+                MessageBox.Show("Выберите роль для удаления", "Выберите роль",
                 MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }

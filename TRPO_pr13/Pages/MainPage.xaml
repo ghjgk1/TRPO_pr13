@@ -26,14 +26,18 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Login}"/>
-                            <TextBlock Text="{Binding Name}"/>
-                            <TextBlock Text="{Binding Email}"/>
-                            <TextBlock Text="{Binding Password}"/>
-                            <TextBlock Text="{Binding CreatedAt, StringFormat={}{0:dd.MM.yyyy}}"/>
-                            <TextBlock Text="{Binding Profile.AvatarUrl}"/>
-                            <TextBlock Text="{Binding Role.Title}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Login}"/>
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Email}"/>
+                                <TextBlock Text="{Binding Password}"/>
+                                <TextBlock Text="{Binding CreatedAt, StringFormat={}{0:dd.MM.yyyy}}"/>
+                                <TextBlock Text="{Binding Role.Title}"/>
+                            </StackPanel>
+                            <Border BorderBrush="Gray" BorderThickness="1" Height="100" Width="100">
+                                <Image Source="{Binding Profile.AvatarUrl}"/>
+                            </Border>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

@@ -49,6 +49,9 @@ namespace TRPO_pr13.Service
 
         public void LoadRelation(Role role, string relation)
         {
+            if (role == null)
+                return; 
+
             var entry = _db.Entry(role);
 
             var navigation = entry.Metadata.FindNavigation(relation)

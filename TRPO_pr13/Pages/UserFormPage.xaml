@@ -122,78 +122,19 @@
                     </ItemsControl>
                 </StackPanel>
             </StackPanel>
-
-            <StackPanel>
-                    <Label>Ссылка на аватар</Label>
-                    <StackPanel>
-                        <TextBox x:Name="avatar">
-                            <TextBox.Text>
-                                <Binding Path="Profile.AvatarUrl">
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </StackPanel>
-                </StackPanel>
-
-            <StackPanel>
-                <StackPanel>
-                    <Label>Номер телефона</Label>
-                    <StackPanel>
-                        <TextBox x:Name="phone">
-                            <TextBox.Text>
-                                <Binding Path="Profile.Phone">
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel>
-                <StackPanel>
-                    <Label>День рождения</Label>
-                    <StackPanel>
-                        <TextBox x:Name="birthday">
-                            <TextBox.Text>
-                                <Binding Path="Profile.Birthday">
-                                    <Binding.ValidationRules>
-                                        <validators:DateValidation/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                        <ItemsControl ItemsSource="{Binding ElementName=birthday, Path=(Validation.Errors)}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding ErrorContent}" Style="{StaticResource message}"/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel>
-                <StackPanel>
-                    <Label>Краткое описание</Label>
-                    <StackPanel>
-                        <TextBox x:Name="bio">
-                            <TextBox.Text>
-                                <Binding Path="Profile.Bio">
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
-                    </StackPanel>
-                </StackPanel>
-            </StackPanel>
+            
             <StackPanel>
                 <Label>Группа</Label>
                 <ComboBox ItemsSource="{Binding Source={StaticResource roleService}, Path=Roles}"
                     DisplayMemberPath="Title"
                      SelectedItem="{Binding Role}"/>
             </StackPanel>
+            
             <StackPanel>
-                    <Button Click="save">Сохранить в БД</Button>
-                    <Button Click="back">Назад</Button>
-                </StackPanel>
+                <Button Click="save">Сохранить в БД</Button>
+                <Button Click="profile">Добавить профиль</Button>
+                <Button Click="back">Назад</Button>
+            </StackPanel>
             </StackPanel>
     </Grid>
 </Page>
