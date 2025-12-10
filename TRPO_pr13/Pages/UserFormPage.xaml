@@ -127,7 +127,8 @@
                 <Label>Группа</Label>
                 <ComboBox ItemsSource="{Binding Source={StaticResource roleService}, Path=Roles}"
                     DisplayMemberPath="Title"
-                     SelectedItem="{Binding Role}"/>
+                     SelectedItem="{Binding Role}"
+                          />
             </StackPanel>
             
             <StackPanel>
