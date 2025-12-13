@@ -121,16 +121,20 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-            </StackPanel>
             
-            <StackPanel>
-                <Label>Группа</Label>
-                <ComboBox ItemsSource="{Binding Source={StaticResource roleService}, Path=Roles}"
-                    DisplayMemberPath="Title"
-                     SelectedItem="{Binding Role}"
-                          />
+                <StackPanel>
+                    <Label>Группа</Label>
+                    <ComboBox ItemsSource="{Binding Source={StaticResource roleService}, Path=Roles}"
+                              SelectedItem="{Binding Role}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" Style="{StaticResource ComboBox}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
             </StackPanel>
-            
+
             <StackPanel>
                 <Button Click="save">Сохранить в БД</Button>
                 <Button Click="profile">Добавить профиль</Button>

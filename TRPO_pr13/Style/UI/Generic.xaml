@@ -41,7 +41,11 @@
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
     </Style>
-
+    
+    <Style TargetType="TextBlock" x:Key="ComboBox">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    
     <Style x:Key="message" TargetType="TextBlock">
         <Setter Property="Foreground" Value="Red"/>
     </Style>
